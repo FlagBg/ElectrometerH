@@ -25,7 +25,7 @@ class UserCreate
 				'fname' 	=> $_POST['fname'],
 				'lname'		=> $_POST['lname'],
 				'age'		=> $_POST['age']
-			);  I DON'T NEED IT HERE, I NEED IT BELOW, because it is creating by default an object;
+			); it is creating by default an object;
 		}*/
 	}
 	
@@ -47,10 +47,10 @@ class UserCreate
 				'user_role_id'		=> $_POST['user_role_id'],
 				'user_first_name'	=> $_POST['user_first_name'],
 				'user_last_name'	=> $_POST['user_last_name'],
-				'age'				=> $_POST['user_age']
+				'user_age'			=> $_POST['user_age']
 			); 
 		}
-		var_dump($userdata);die('inReg controller');
+		print "get me the datas from controller if post " . var_dump($userdata);
 		
 		$userModel	= new UsersModel();
 	

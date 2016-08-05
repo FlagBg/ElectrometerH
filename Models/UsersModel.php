@@ -32,23 +32,64 @@ class UsersModel {
 	 * param	string $this->db;
 	 *
 	 */
-	public function __construct()//this is clear
+	public function __construct()
 	{
 		$this->db = Database::getInstance();
 	}
 	
 	/**
-	 * @brief	create object login() that takes all the values from 
-	 * 			the database and return it as statement	
-	 * 
-	 * 
-	 * 
-	 * @param 	string  $username
-	 * @param	string  $password
-	 * @param 	string  sql;
-	 * @param	string	stm;
-	 * @param	string $result as array();
-	 */
+	* @brief 		function createUser that insert datas in the db, it works with sql query and assiciative array;
+	*
+	* @details		when is called it takes the params from the db it is doing the query INSERT
+	*
+	* @param 		array $userData
+	*
+	* @return 		void
+	*
+	*/
+	public function createUser( $userData )
+	{
+		//$userData['role_id'] = self::DEFAULT_ROLE_ID; //just in case removing the javascript and put default role!
+	
+		$sql = 'INSERT INTO tbluser (
+				user_username,
+				user_password,
+				user_role_id,
+				user_first_name,
+				user_last_name,
+				user_age )
+			VALUES (?, ?, ?, ?, ?, ?)';
+	
+		$userData = array(
+				$userData['user_username'],
+				$userData['user_password'],
+				$userData['user_role_id'],
+				$userData['user_first_name'],
+				$userData['user_last_name'],
+				$userData['user_age']
+		);
+	
+		$stmt	=  $this->db->prepare( $sql );
+		$result	= $stmt->execute( $userData );
+	
+		return $result;
+	
+	}
+	
+	
+	
+	/**
+	* @brief	create object login() that takes all the values from 
+	* 			the database and return it as statement	
+	* 
+	* 
+	* 
+	* @param 	string  $username
+	* @param	string  $password
+	* @param 	string  sql;
+	* @param	string	stm;
+	* @param	string $result as array();
+	*/
 	public function login( $username, $password )//this is clear
 	{
 		//malka prerabotka
@@ -259,64 +300,7 @@ class UsersModel {
 		return $userData;
 	}
 	
-	/**
-	 * @brief 		function createUser that insert datas in the db, it works with sql query and assiciative array;
-	 * 
-	 * @details		when is called it takes the params from the db it is doing the query INSERT
-	 * 
-	 * @param 		array $userData
-	 * 
-	 * @return 		void
-	 * 
-	 */	public function createUser( $userData )
-	{
-		//$sql = 'INSERT INTO users($userData[''],...'
-		//$sql = 'INSERT INTO users(username,password,role_id,fname,lname,age) VALUES (username=?,password=?,role_id=?,fname=?,lname=?,age=?)';
-		//$sql = 'INSERT INTO users($userData['username'], $userData['password'],$userData['role_id'],
-		
-		//$userData['role_id'] = self::DEFAULT_ROLE_ID; //just in case removing the javascript and put default role!
-		
-		$sql = 'INSERT INTO tbluser (
-				user_username,
-				user_password,
-				user_role_id,
-				user_first_name,
-				user_last_name,
-				user_age ) 
-			VALUES (?, ?, ?, ?, ?, ?)';
-		
-		$userData = array( 
-				$userData['user_username'], 
-				$userData['user_password'], 
-				$userData['user_role_id'],
-				$userData['user_first_name'], 
-				$userData['user_last_name'], 
-				$userData['user_age']
-		);
-		
-		/*
-		$userData = array($userData['id'])
-		$waarde = mysql_insert_id($this->db);
-		*/
-		
-		
-		
-		/* $sql	= '
-			INSERT INTO users
-			SET username = ?,
-				password = ?,
-				role_id	= ?,
-				fname = ?,
-				lname = ?,
-				age = ?
-		'; */
-		//print_r($userData);;
-		$stmt	=  $this->db->prepare( $sql );
-		$result	= $stmt->execute( $userData );
-		
-		return $result;
-		//var_dump( $result );die();
-	}
+	
 	/*
 	public function deleteUser( $deleteUser )
 	{
