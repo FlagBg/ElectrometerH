@@ -41,7 +41,7 @@ class ShowAllUsers
 				return "Username is not a string....oh crap." ;
 			}
 			
-			if (is_numeric($_POST['user_role_id']) && strlen((string)$_POST['user_role_id']) < 12)
+			if ( is_numeric( $_POST['user_role_id']) && strlen( (string)$_POST['user_role_id']) < 12)
 			{
 				$roleId = $_POST['user_role_id'];
 			}

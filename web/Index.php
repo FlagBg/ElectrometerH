@@ -90,7 +90,7 @@ if ( $controller != '' )
 		include __DIR__ . '/../Controllers/Users.php';
 		
 		$var = new Users();
-		$var->loadPage('my-profile'); //thishasn't been coded at all. FOI: Need to code this whole class.
+		$var->loadPage('my-profile'); 
 	}
 	
 	// Electrometers Controller
@@ -207,26 +207,7 @@ if ( $controller != '' )
 		//$userDelete->renderForm();
 		// promenih $userEdit na 4userDelete
 	}
-	elseif($controller == 'userCreate')
-	{
-		include __DIR__ . '/../Controllers/UserCreate.php';
-	
-		$userCreate	= new UserCreate();
-		$userCreate->renderForm();
-		
-		if ( $_POST )
-		{
-			//var_dump( $userCreate->create() ); die();
-			$result	= $userCreate->create();//ei tuk dava greshkata!!!
-			
-			if ( $result )
-			{
-				UrlHelper::redirect( '/login' );
-			}
-		}
-	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
 	elseif( $controller == 'register' )
 	{
 		include __DIR__ . '/../Controllers/UserRegistration.php';
@@ -246,7 +227,7 @@ if ( $controller != '' )
 			}
 		}
 	}
-	elseif($controller == 'not-found')
+	elseif( $controller == 'not-found' )
 	{
 		include __DIR__ . '/../Controllers/ErrorPage.php';
 	
@@ -268,7 +249,28 @@ if ( $controller != '' )
 		$userDrop->renderForm();
 		
 		
-	} */
+	} 
+	
+	elseif($controller == 'userCreate')
+	{
+		include __DIR__ . '/../Controllers/UserCreate.php';
+	
+		$userCreate	= new UserCreate();
+		$userCreate->renderForm();
+		
+		if ( $_POST )
+		{
+			//var_dump( $userCreate->create() ); die();
+			$result	= $userCreate->create();//ei tuk dava greshkata!!!
+			
+			if ( $result )
+			{
+				UrlHelper::redirect( '/login' );
+			}
+		}
+	}
+	
+	*/
 }
 else
 {

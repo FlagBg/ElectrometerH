@@ -65,11 +65,11 @@ class Home
 		
 		$content = $header . $form . $footer;
 		
-		if (is_array($variables))
+		if (is_array( $variables ) )
 		{
 			
 			$i = 0;
-			$t = count($variables);
+			$t = count( $variables );
 			
 			while ($i != $t)
 			{
