@@ -1,0 +1,14 @@
+
+.nav li { list-stlyle: none; }
+.nav li a{ text-decoration: none; color: #fff; display: block; padding: 10px 30px; background: #3c3c3c;
+			border: 1px solid #ccc; }
+.nav li, .nav li a { float: left };
+.nav li {position: relative; }
+
+/* sub menus style */
+
+.nav li ul { position: absolute; margin:0; padding:0; top:100%; display: none; }
+
+.nav li:hover> ul { display: block; }
+
+.nav li ul li ul { top: 0; left:100%; }

@@ -1,0 +1,180 @@
+
+
+1. describe tablename;
+2. SELECT * FROM electromer.users;
+3. SELECT * FROM users;
+4. SELECT DATABASE();
+5. SELECT fname, lname FROM users WHERE id = '1'
+6. SELECT fname, lname FROM users WHERE id = '1'
+7. SELECT id, dayRateValue, nightRateValue FROM electrometer WHERE dayRateValue > 10
+	SELECT fname from electrometer.users 
+	SELECT electromer.attendee.att_name FROM electromer.attendee
+		SELECT * FROM table WHERE column >= 123121 AND <= 12313123121;
+		                    WHERE column BETWEEN 123121 AND 1231231231233;
+SELECT SUM(tableColumn), AVG(tableColumn) FROM table
+	SELECT Continent, SUM(Population) AS pop FROM	Country GROUP BY Continent		
+SELECT SUM(Population) AS pop FROM Country
+	SELECT Language FROM CountryLanguage WHERE CountryCode = 'THA';
+	SELECT GROUP_CONCAT(Language) AS Languages FROM CountryLanguage WHERE CountryCode = 'THA';
+	SELECT title, MIN(salary), MAX(salary), AVG(salary) FROM personnel GROUP BY title;
+	SELECT title, COUNT(*), AVG(salary) FROM personnel WHERE dept_id = 7 GROUP BY title;
+	SELECT * FROM table WHERE YEAR >= 1999;
+	SELECT * FROM table WHERE /pisha imeto na colonata/ >= '2016-03-11';
+
+	SELECT * FROM table WHERE Name LIKE 'M%';
+	1MILLION RAWS, SO DAI MI IMENATA NA VSI4KO ZAPO4VASHTO S "M";
+
+
+SELECT subscriber, email FROM list1 
+UNION SELECT name, address FROM list2
+UNION SELECT real_name, email FROM list3;
+
+//////////////////////////
+9. working with Connection dialog = privileges!,!
+
+10. CREATE TABLE people ( id INT, first_name CHAR(30), last_name(30) );
+	To disallow negative values in the id column we use add UNSIGN ATTRIBUTE;
+	to disallow unknown values in the column we ADD NOT NULL;
+	
+11. CREATE TABLE allergy 
+( 
+symptom SET('ala bala', 'portokala', 'tirtinica', 'kopanica')
+);							
+12. CREATE TABLE ts_test1
+(
+	ts1 TIMESTAMP, ts2 TIMESTAMP, data CHAR(30)
+);
+
+12. INSERT INTO `ts_test1`(`data`) VALUES ('original value');
+13  UPDATE `ts_test1` SET data='Updated_value';
+14. 
+	CREATE TABLE ts_test3
+(
+	updated_time TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	data CHAR(30)    
+);
+15. CREATE TABLE attendee
+(
+ 	att_id	INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    att_name CHAR(100),
+    att_title CHAR(40),
+    PRIMARY KEY (att_id) 
+);
+16. CREATE TABLE seminar
+(
+    att_id INT UNSIGNED NOT NULL,
+    sem_title	ENUM('Database Design', 'Query Oprimization',
+                     'SQL Standarts', 'Using Replcitaion'),
+    INDEX (att_id)
+ );
+17. INSERT INTO attendee (att_name, att_title) VALUES ('Angel Bayraktarov', 'Rookie');
+18. SELECT * FROM attendee WHERE att_id = LAST_INSERT_ID();
+
+19. CREATE TABLE multisequence
+(
+	name CHAR(10) NOT NULL,
+	name_id INT UNSIGN NOT NULL, AUTO_INCREMENT,
+	PRIMARY KEY ( name_id)
+
+)
+
+	ALTER TABLE Person DROP PRIMARY KEY; 
+	ALTER TABLE Persons DROP CONSTRAINT pk_PersonID
+
+20. INSERT INTO multisequence values ('Peter'),('Angel'),('Angel'),('Ivan');
+
+////////////////////////////////////////////////////////////
+21. CREATE TABLE t ( `order` INT NOT NULL UNIQUE, d DATE NOT NULL );
+IITTTTTT COULDDD BE
+	CREATE TABLE t ("order" INT NOT NULL UNIQUE, d DATE NOT NULL );
+
+22. CREATE TABLE t (id INT, NOT NULL);
+	CREATE TABLE IF NOT EXITES t (i INT);
+	
+23. CREATE TABLE TT ( id INT NOT NULL, last_name CHAR(30) NOT NULL, d DATE NOT NULL );
+24. CREATE TABLE t1 (id	INT NOT NULL, last_name CHAR(30) NOT NULL, UNIQUE (id), INDEX (last_name,first_name);
+
+25. CREATE TABLE CityCopy1 SELECT * FROM City;
+	CREATE TABLE CityCopy2 SELECT * FROM City WHERE Population > 20000000;
+	CREATE TABLE CityCopy2 SELECT * FROM City WHERE 0;
+	
+26	CREATE TABLE FedCity
+(
+	ID 		INT NOT NULL AUTO_INCREMENT,
+	Name    	CHAR(35) NOT NULL,
+	CountryCode 	CHAR(3) NOT NULL,
+	District	CHAR(20) NOT NULL,
+	Population	INT NOT NULL,
+	PRIMARY KEY (ID)    
+)
+
+27. CREATE TABLE Orders
+(
+)_Id int NOT NULL PRIMARY KEY,
+OrderNo int NOT NULL,
+P_Id int FOREIGN KEY REFERENCES Person(P_Id),tova e primary key na table(Person0
+
+DATABASE PROPERTIES!
+
+	
+	INSERT INTO electrometer SET id=8, dayRateValue = 123.12, nightRateValue = 123.34;
+	INSERT INTO electrometer (id, dayRateValue, nightRateValue) VALUES ('9',23423423.23, 4232.23);
+	INSERT INTO electrometer SET dayRateValue = 12313212321.23, nightRateValue = 1232132323.34;
+
+	INSERT INTO electrometer (id, dayRateValue, nightRateValue) VALUES ('23', 23234242.23, 234234242.44);
+	INSERT INTO electrometer (dayRateValue, nightRateValue) VALUES(123123123, 12313112312312233);
+	INSERT INTO INSERT INTO electrometer(dayRateValue,nightRateValue) VALUES(123,345),(456,789),(333,444);
+	
+	START TRANSACTION;
+	INSERT INTO electrometer(dayRateValue,nightRateValue) VALUES(111,222);
+	INSERT INTO electrometer(dayRateValue,nightRateValue) VALUES(333,444);
+
+	
+	
+	UPDATE electrometer SET dayRateValue = 12313131.12 WHERE id=1;
+
+	UPDATE electrometer SET dayRateValue = '132232',nightRateValue = 233232
+		WHERE 
+
+INNERJOINS|!|	
+	
+	SELECT Name, Language
+		FROM CountryLanguage INNER JOIN Country ON CountryCode = Code;//If the names of the joined tables is the same we can add USING() rathar than ON:
+	SELECT Name, Language	FROM CountryLanguage INNER JOIN Country USING(Code);
+
+	////////////////////////////
+	SELECT column_name(s) FROM table1 INNER JOIN table2
+		ON TABLE1.column_name=table2.column_name;
+
+same as: SELECT column_name(s) FROM table1 join table2
+		ON table1.column_name=table2.column_name;
+	////////////////////////////////
+
+or///// SELECT Customers.CostumerName, OrderID FROM Customers
+		INNER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
+			ORDER BY Customers.CustomerName;
+
+TRIGGERS:
+	CREATE TRIGGER electromer_dayRate
+	BEFORE INSERT ON electrometer 
+    	FOR EACH ROW
+        	SET NEW.dayRateValue = IF(NEW.dayRateValue < 0, 0, TRUNCATE(NEW.dayRateValue, -3));
+it checks 
+	
+	
+	
+EXAMPLES: century INT(4) weight FLOAT(10,3) avb_score DOUBLE(20,7)
+		  YEAR(4) YEAR(2) 
+TIYINT 1 byte -128 to 127 UNSIGN Range 0 to 255;
+SMALLINT 2 bytes -32768 to 32,767   unsign range 0 to 65,535
+mediumint 3 bytes - 8,388,608 to 8,388,607 unsign value 0 to 16,777,215
+int 4 bytes - 2,147,683,648 to 2,147483,647 unsign 0 ti 5,294,967,295
+FLOAT, DOUBLE,
+for precision and scale we use DECIMAL DECIMAL(10) DECIMAL(10,0) 
+
+STRING DATATYPES
+CHAR - FIXED LENGTH,
+VARCHAR - VARIABLE LENGTH
+TEXT    - VARIABLE LENGTH
+BINARY  - FIXED LENGTH
+VSET		

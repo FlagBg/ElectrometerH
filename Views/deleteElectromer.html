@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>DeleteElectromer</title>
+	</head>
+		<body>
+			<h3>DeleteElectromer</h3>
+			<form action="/?controller=deleteElectromer" method="post">
+				NomerElectromer:<input type="text" name="id" id="id"><br>
+				<!--DayRate:<input type="text" name="dayRateValue" id="dayRateValue"><br>   !-->
+				<!--NightRateValue:<input type="text" name"nightRate" id="nightRateValue"]><br> !-->
+				<input type="submit" name="id" value="Delete"><br>
+			
+			</form>
+		</body>
+
+</html>
+
+
+	$login	= new Login();
+			$login->login( $username, $password );
+			
+			if( $login->isloggedIn() )
+			{
+				header( 'Location: index.php?controller=userEdit' );
+				exit;
+			}

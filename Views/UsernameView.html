@@ -1,0 +1,26 @@
+<html>
+	<head>
+	<title>View</title>
+	</head>
+
+<body>
+	<h3>Username</h3>
+	<form action="/?controller=UserEditPost" method="post">
+		
+		Username:<input type="text" name="username" id="username"><br>
+		FirstName:<input type="text" name="fname" id="fname"><br>
+		Password:<input type="text" name="password" id="password"><br>
+		LastName:<input type="text" name="lname" id="lname"><br>
+		Age:<input type="text" name="age" id="age"><br>
+		Submit:<input type="submit" name="submit" value="Update"><br>
+	</form>
+</body>
+</html>
+<!-- 
+	UPDATE `users` SET `id`=[value-1],
+				`username`=[value-2],
+				`password`=[value-3],
+				`role_id`=[value-4],
+				`fname`=[value-5],
+				`lname`=[value-6],
+				`age`=[value-7] -->

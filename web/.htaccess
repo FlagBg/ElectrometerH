@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([^/]*)$						index.php?controller=$1 [L]
+RewriteRule ^([^/]*)/([^/]*)$				index.php?controller=$1&var1=$2 [L]
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)$		index.php?controller=$1&var1=$2&var2=$3 [L]

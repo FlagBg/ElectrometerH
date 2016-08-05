@@ -1,0 +1,44 @@
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+		<title>Login</title>
+		<style type="text/css">
+			.registerButton
+			{
+				background:grey;
+				width:80px;
+				height:30px;
+				text-align:center;
+				padding-top:5px;
+			}
+			
+			.registerButton a
+			{
+				color:blue;
+				text-decoration:none;
+			}
+		</style>
+	</head>
+
+<body>
+	<h3>Login</h3>
+	<div class = "container">
+		<div class ="row">
+			<div class = "form-signin">
+				<form action="/loginUser" method="post">
+					<input type="hidden" name="action" value="login" />
+					<label for="username">Username:</label><input type="text" name="user_username" id="user_username" 
+																		placeholder = "enter Username "><br>
+					<label for="password">Password:</label><input type="password" name="user_password" id="user_password"
+																		placeholder = "enter Password"><br>
+					<input type="submit" name="submit" value="Login"><br>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="registerButton"><a href="index.php?controller=userCreate">Register</a></div>
+</body>
+</html>
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>UserCreate</title>
+	</head>
+		<body>
+			<h3>UserRegistration</h3>
+				<form action="/?controller=userCreate" method="post" onsubmit="return validate();">
+	 				
+	 				<label for="username">Username: </label><input type="text" name="user_username" id="user_username">		<br/> 
+	 				<label for="username">password: </label><input type="password" name="user_password" id="user_password">	<br/>
+					<label for="fname">FirstName: </label>  <input type="text" name="user_first_name" id="user_first_name">          	<br/>
+					<label for="lname">Last Name: </label>  <input type="text" name="user_last_name" id="user_last_name">          	<br/>
+					<label for="age"> Age: </label><input type="text" name="user_age" id="user_age">              			<br/>
+					<label for="role">Role: </label>
+						<select name="role_id" id="role_id">
+							<option value="0" id="user_role_id">Choose</option>
+							<option value="1" id="user_role_id">Guest</option>
+							<option value="2" id="user_role_id">Admin</option>
+							<option value="3" id="user_role_id">SuperAdmin</option>
+						</select>
+					<input type="submit" name="submit" value="Submit"/> 
+					<!--name="submit" value="Update"<br> -->
+				</form>
+				<!-- <button type="button" onclick="('Set the datas')">Send!!!</button>-->
+		
+				<script type ="text/javascript">
+					function validate()
+					{
+						select = document.getElementById( 'user_role_id' );
+						
+						if(select.value == '0')
+							{
+								alert('Choose role, please!!!');
+								return false;
+							}
+						
+						return true;
+					}
+				</script>
+					
+		</body>
+		
+</html>
