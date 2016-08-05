@@ -1,44 +1,85 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<title>UserCreate</title>
-	</head>
-		<body>
-			<h3>UserRegistration</h3>
-				<form action="/?controller=userCreate" method="post" onsubmit="return validate();">
-	 				
-	 				<label for="username">Username: </label><input type="text" name="user_username" id="user_username">		<br/> 
-	 				<label for="username">password: </label><input type="password" name="user_password" id="user_password">	<br/>
-					<label for="fname">FirstName: </label>  <input type="text" name="user_first_name" id="user_first_name">          	<br/>
-					<label for="lname">Last Name: </label>  <input type="text" name="user_last_name" id="user_last_name">          	<br/>
-					<label for="age"> Age: </label><input type="text" name="user_age" id="user_age">              			<br/>
-					<label for="role">Role: </label>
-						<select name="role_id" id="role_id">
-							<option value="0" id="user_role_id">Choose</option>
-							<option value="1" id="user_role_id">Guest</option>
-							<option value="2" id="user_role_id">Admin</option>
-							<option value="3" id="user_role_id">SuperAdmin</option>
-						</select>
-					<input type="submit" name="submit" value="Submit"/> 
-					<!--name="submit" value="Update"<br> -->
-				</form>
-				<!-- <button type="button" onclick="('Set the datas')">Send!!!</button>-->
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		
-				<script type ="text/javascript">
-					function validate()
-					{
-						select = document.getElementById( 'user_role_id' );
-						
-						if(select.value == '0')
-							{
-								alert('Choose role, please!!!');
-								return false;
-							}
-						
-						return true;
-					}
-				</script>
+		<title>User Registration</title>
+		
+	</head>
+	
+		<body>
+	
+		<script type="text/javascript">
+				function validate(){
+					select = document.getElementById( 'user_role_id' );
 					
-		</body>
+					if(select.value == '0')
+					{
+						alert('Choose role, please!!!');
+						return false;
+					}
+					return true;
+				}
+		</script>
+		
+		<section class = "Register User">
+		
+		<h3>User Registration</h3>
+		
+		<form action="/?controller=register" method="post">
+			
+		<div id="form_container">
+			<div class = "username">
+				<div id="username_container">
+					<div id="username_label_container"><label for="username_label" id="username_label">Username:</label></div>
+					<div id="username_input_container"><input type="text" name="user_username" id="user_username"/></div>
+				</div>
+			</div>
+			<div class = "password">
+				<div id="password_container">
+					<div id="password_label_container"><label for="username" id="user_password_label">Password:</label></div>
+					<div id="password_input_container"><input type="password" name="user_password" id="user_password"></div>
+				</div>
+			</div>
+			<div class = "forename">
+				<div id="forename_container">
+					<div id="forename_label_container"><label for="user_first_name" id="user_first_name_label">Person's First Name</label></div>	
+					<div id="forename_input_container"><input type="text" name="user_first_name" id="user_first_name" /></div>
+				</div>
+			</div>
+			<div class = "surname">
+				<div id="lastname_container">
+					<div id="lastname_label_container"><label for="user_last_name" id="user_last_name_label">Person's Surname</label></div>	
+					<div id="lastname_input_container"><input type="text" name="user_last_name" id="user_last_name" /></div>
+				</div>
+			</div>
+			<div id="age_date_container">
+				<div id="age_date_label_container"><label for="user_age" id="dob_date_label">User's age</label></div>
+				<div id="age_date_input_container"><input type="text" name="user_age" id="user_age" /></div>
+			</div>
+			
+		<div class = "roles">
+			<div id="role_container">
+				<div id="role_label_container"><label for="user_role">The User is </label></div>
+				<div id="role_select_container">
+					<select name="user_role_id" id="user_role_id">
+						<option value="0" id="user_role_id">Choose</option>
+						<option value="1" id="user_role_id">Guest</option>
+						<option value="2" id="user_role_id">Admin</option>
+						<option value="3" id="user_role_id">Superadmin</option>
+					</select>
+ 				</div>
+ 			</div>
+ 		</div>
+		<div id="submit_container">
+			<input type="submit" name="submit" value="Submit"/> 
+		</div>
+				
+		</div>
+					<!--name="submit" value="Update"<br> -->
+	</form>
+	</section>		
+					
+	</body>
 		
 </html>

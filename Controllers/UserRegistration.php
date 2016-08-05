@@ -16,7 +16,8 @@ class UserCreate
 	 * @return	boolean		
 	 */
 	public function __construct()
-	{    /* if( ! empty( $_POST ) )
+	{
+	/* if( ! empty( $_POST ) )
 		{
 			$userdata = array(
 				'username'	=> $_POST['username'],
@@ -29,15 +30,15 @@ class UserCreate
 	}
 	
 	/**
-	 * @brief 	this function create the model, we create the if statement, if!empty array()
-	 * 
-	 * @param 	$this->userData;$this
-	 * 
-	 * $return	array( $result ) not anymore $user->userData	
-	 * 
-	 */
+	* @brief 	this function create the model, we create the if statement, if!empty array()
+	* 
+	* @param 	$this->userData;$this
+	* 
+	* $return	array( $result ) not anymore $user->userData	
+	* 
+	*/
 	public function create()
-	{ die('here');
+	{
 		if( ! empty( $_POST ) )
 		{
 			$userdata = array(
@@ -49,6 +50,7 @@ class UserCreate
 				'age'				=> $_POST['user_age']
 			); 
 		}
+		var_dump($userdata);die('inReg controller');
 		
 		$userModel	= new UsersModel();
 	

@@ -233,9 +233,9 @@ if ( $controller != '' )
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	elseif($controller == 'register')
+	elseif( $controller == 'register' )
 	{
-		include __DIR__ . '/../Controllers/UserCreate.php';
+		include __DIR__ . '/../Controllers/UserRegistration.php';
 	
 		$userCreate	= new UserCreate();
 		$userCreate->renderForm();

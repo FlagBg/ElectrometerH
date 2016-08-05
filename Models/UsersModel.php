@@ -83,8 +83,13 @@ class UsersModel {
 				$rows		= $stmt->fetchAll(PDO::FETCH_ASSOC);
 				$user		= array_pop( $rows ); 
 				
-				return new User( $user['user_id'], $user['user_first_name'], $user['user_last_name'], $user['age'] );
-								//$user['username'], $user['id'] ); just in case; 
+				return new User( 
+						$user['user_id'], 
+						$user['user_first_name'],
+						$user['user_last_name'], 
+						$user['age']
+				);
+				//$user['username'], $user['id'] ); just in case; 
 				//var_dump($user);die();
 				//return $user;
 				//var_dump( $user );die('hi');
