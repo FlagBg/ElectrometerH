@@ -1,47 +1,47 @@
 <?php
 /**
- * 
- * @Brief users create an object user, because we have users;
- * 
- * 
- *
- */
+* 
+* @Brief users create an object user, because we have users;
+* 
+* 
+*
+*/
 class User
 {
 	/**
-	 * 
-	 * @param 	string $firstName;
-	 * @param 	string $lastName; unknown
-	 * @param 	int    $age;
-	 */
+	* 
+	* @param 	string $firstName;
+	* @param 	string $lastName; unknown
+	* @param 	int    $age;
+	*/
 	protected $firstName;
 	
 	/**
-	 * @var	string $lastName
-	 */
+	* @var	string $lastName
+	*/
 	protected $lastName;
 	
 	/**
-	 * 
-	 * @var int $age
-	 */
+	* 
+	* @var int $age
+	*/
 	protected $age;
 	
 	/**
-	 * 
-	 * @var int $id;
-	 */
+	* 
+	* @var int $id;
+	*/
 	protected $id;
 	
 	
 	/**
-	 * @brief	creating object, using function __construct;
-	 * 
-	 * @param	int	   $id
-	 * @param 	string $firstName
-	 * @param 	string $lastName
-	 * @param 	int    $age
-	 */
+	* @brief	creating object, using function __construct;
+	* 
+	* @param	int	   $id
+	* @param 	string $firstName
+	* @param 	string $lastName
+	* @param 	int    $age
+	*/
 	public function __construct( $id, $firstName, $lastName, $age)
 	{
 		$this->id			= $id;

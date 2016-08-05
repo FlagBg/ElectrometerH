@@ -8,7 +8,7 @@ include_once '../Models/UsersModel.php';
  * 
  * @details: it works with inherit singleton database connection; and passing the cription using md5;
  */
-class UserCreate
+class UserRegistration
 {	
 	/**
 	 * @brief	construct the model
@@ -37,7 +37,7 @@ class UserCreate
 	* $return	array( $result ) not anymore $user->userData	
 	* 
 	*/
-	public function create()
+	public function createUser()
 	{
 		if( ! empty( $_POST ) )
 		{
@@ -54,11 +54,10 @@ class UserCreate
 		
 		$userModel	= new UsersModel();
 	
-		$result		= $userModel->createUser( $userdata );
+		$result		= $userModel->registerUser( $userdata );
 		
 		return $result;
-		
-		
+	
 	}
 	
 	/**

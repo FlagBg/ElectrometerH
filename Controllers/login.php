@@ -55,7 +55,7 @@ class Login
 			$this->loggedIn 		= true;
 			$_SESSION['user_id']	= $this->user->getId();
 			$_SESSION['user_key']	= md5($this->user->getFirstName() . $this->user->getLastName() . $this->user->getAge());
-			//var_dump($_SESSION['user_key']);
+			echo 'the session user_key' . var_dump($_SESSION['user_key'] );
 		}
 	}
 

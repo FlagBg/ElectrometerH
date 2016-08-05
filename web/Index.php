@@ -9,7 +9,6 @@ define ('PROJPATH', realpath($_SERVER['DOCUMENT_ROOT'] . '/../'));
 
 include '../utils/UrlHelper.php';
 
-
 if( isset( $_GET['controller'] ) )
 {
 	$controller	= $_GET['controller'];
@@ -48,9 +47,9 @@ if ( $controller != '' )
 			$login->renderLoginForm();
 		}
 	}
-	elseif ($controller == 'home')//works
+	elseif ( $controller == 'home' )
 	{ 
-		if (isset($_SESSION['user_id']) && isset($_SESSION['user_key']))
+		if (isset( $_SESSION['user_id']) && isset( $_SESSION['user_key'] ) )
 		{
 			include_once (PROJPATH . '/Controllers/Home_loggedin.php');
 			
@@ -209,7 +208,7 @@ if ( $controller != '' )
 		// promenih $userEdit na 4userDelete
 	}
 	elseif($controller == 'userCreate')
-	{die('index');
+	{
 		include __DIR__ . '/../Controllers/UserCreate.php';
 	
 		$userCreate	= new UserCreate();
@@ -223,32 +222,27 @@ if ( $controller != '' )
 			if ( $result )
 			{
 				UrlHelper::redirect( '/login' );
-				//ÒÎÂÀ ÒÓÊ ÃÐÅØÍÎ ËÈ Å???
 			}
 		}
 	}
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	
-	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	elseif( $controller == 'register' )
 	{
 		include __DIR__ . '/../Controllers/UserRegistration.php';
 	
-		$userCreate	= new UserCreate();
+		$userCreate	= new UserRegistration();
+		
 		$userCreate->renderForm();
 		
 		if ( $_POST )
-		{
-			//var_dump( $userCreate->create() ); die();
-			$result	= $userCreate->create();//ei tuk dava greshkata!!!
+		{//var_dump( $userCreate->createUser() ); die('index');
+			$result	= $userCreate->createUser();
 			
 			if ( $result )
 			{
+				print "the login was successful" .
 				UrlHelper::redirect( '/login' );
-				
 			}
 		}
 	}

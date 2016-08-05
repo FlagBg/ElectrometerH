@@ -21,17 +21,16 @@ class UsersModel {
 	protected $db;
 	
 	/**
-	 * @brief	default_role_id as we did selector, so the default role is not anymore necessary to be const;
+	 * @brief	default_role_id is not need anymore as const, because is a selector
 	 */
 	//const DEFAULT_ROLE_ID = 1;
 	
-	
 	/**
-	 * create object 
-	 * 
-	 * param	string $this->db;
-	 *
-	 */
+	*@brief	create object 
+	* 
+	*@param	string $this->db;
+	*
+	*/
 	public function __construct()
 	{
 		$this->db = Database::getInstance();
@@ -47,10 +46,9 @@ class UsersModel {
 	* @return 		void
 	*
 	*/
-	public function createUser( $userData )
-	{
-		//$userData['role_id'] = self::DEFAULT_ROLE_ID; //just in case removing the javascript and put default role!
-	
+	public function registerUser( $userData )
+	{//$userData['role_id'] = self::DEFAULT_ROLE_ID; 
+	 //just in case removing the javascript and put default role!
 		$sql = 'INSERT INTO tbluser (
 				user_username,
 				user_password,
@@ -70,42 +68,37 @@ class UsersModel {
 		);
 	
 		$stmt	=  $this->db->prepare( $sql );
+		
 		$result	= $stmt->execute( $userData );
 	
 		return $result;
 	
 	}
 	
-	
-	
 	/**
-	* @brief	create object login() that takes all the values from 
-	* 			the database and return it as statement	
+	*@brief	create object login() that takes all the values from 
+	*			the database and return it as statement	
 	* 
-	* 
-	* 
-	* @param 	string  $username
-	* @param	string  $password
-	* @param 	string  sql;
-	* @param	string	stm;
-	* @param	string $result as array();
+	*@param 	string	$username
+	*@param		string	$password
+	*@param 	string	sql;
+	*@param		string	stm;
+	*@param		string 	$result as array();
 	*/
-	public function login( $username, $password )//this is clear
-	{
-		//malka prerabotka
+	public function login( $username, $password )
+	{//malka prerabotka
 		/*
-		 * public function login ( $login )
-		 * {
-		 * 		$login = array( $login['username'], $login['$password'] );
-		 * 
-		 *  	$sql   = 'SELECT * FROM users WHERE username = ? AND password = ?';
-		 * 
-		 * 		$stmt = $this->db->prepare( $sql );
-		 * 		
-		 * 		$result = $stmt->execute( array( $login ) 
-		 * 				if ( $result ) 
-		 * 					{ $rows = stmt->fetchAll(PDO::FETCH_ASSOC);
-		 * 					{ $user	= array_pop( $rows );
+		public function login ( $login )
+		{
+			$login = array( $login['username'], $login['$password'] );
+		 	$sql   = 'SELECT * FROM users WHERE username = ? AND password = ?';
+ 			$stmt = $this->db->prepare( $sql );
+ 				
+		 	$result = $stmt->execute( array( $login ) 
+			if ( $result ) 
+			{ 
+				$rows = stmt->fetchAll(PDO::FETCH_ASSOC);
+		 * 		{ $user	= array_pop( $rows );
 		 */
 		$sql	= '
 			SELECT * FROM tbluser
@@ -113,7 +106,6 @@ class UsersModel {
 		';
 		
 		$stmt	= $this->db->prepare( $sql );
-		//statement;
 		
 		$result	= $stmt->execute( array( $username, $password ) );
 		
@@ -123,21 +115,16 @@ class UsersModel {
 			{
 				$rows		= $stmt->fetchAll(PDO::FETCH_ASSOC);
 				$user		= array_pop( $rows ); 
-				
+			
 				return new User( 
 						$user['user_id'], 
 						$user['user_first_name'],
 						$user['user_last_name'], 
 						$user['age']
 				);
-				//$user['username'], $user['id'] ); just in case; 
-				//var_dump($user);die();
-				//return $user;
-				//var_dump( $user );die('hi');
-				//$userObj	= User($user['fname'], $user['lname'], $user['age']);
-				//$userObj->setId( $user['id'] );
 				
-
+				
+				die('here');//$user['username'], $user['user_id'] ); 
 			}
 			else
 			{
