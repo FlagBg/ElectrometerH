@@ -31,7 +31,7 @@ class Home
 		$sql = "SELECT * FROM content, views WHERE (views.view_id=1 OR views.view_id = 0) AND views.view_status=1 AND content.content_status=1 AND views.view_id=content.content_viewId ORDER BY content.content_key ASC;";	
 	
 		
-		$smst = $this->db->query($sql);
+		$smst = $this->db->query( $sql );
 		$result = $smst->fetchAll();
 		
 		
@@ -57,8 +57,6 @@ class Home
 	{
 		$header = file_get_contents(PROJPATH . '/Views/header.html');
 		$footer = file_get_contents(PROJPATH . '/Views/footer.html');
-		
-		
 		
 		
 		$form	= file_get_contents( __DIR__ . '/../Views/Home.html' );

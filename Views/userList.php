@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<title>My Project - User List</title>
+		<title>My Project Electrometer - User List</title>
 	</head>
 
 	<body>
@@ -10,27 +10,25 @@
 	<div id="userListContainer">
 		<?php 
 		
-			
-		
-			foreach ($userList as $array)
+			foreach ( $userList as $array )
 			{	
 				?>
 				<div class="userListItem">
 					<div class="userListUsername">
-						<?php echo $array['username']; ?>
+						<?php echo "Username:" . $array['user_username']; ?>
 					</div>
 					
 					<div class="userListName">
-						<?php echo $array['fname'] . ' ' . $array['lname']; ?>
+						<?php echo "Name:" . $array['user_first_name'] . ' ' . $array['user_last_name']; ?>
 					</div>
 					
 					<div class="userListRole">
-						<?php echo $array['role']; ?>
+						<?php echo "User's role:" . $array['user_role_id']; ?>
 					</div>
 					
 					<div class="userListOptions">
-						<a href="/URL?user_id=<?php echo $array['id']; ?>&option=edit">Edit User</a>
-						<a href="/URL?user_id=<?php echo $array['id']; ?>&option=delete">Delete User</a>
+						<a href="/URL?user_id=<?php echo $array['user_role_id']; ?>&option=edit">Edit User</a>
+						<a href="/URL?user_id=<?php echo $array['user_role_id']; ?>&option=delete">Delete User</a>
 					</div>
 				</div>
 				<?php

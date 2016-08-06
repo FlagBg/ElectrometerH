@@ -43,7 +43,7 @@ class UserEdit
 	 * 
 	 * @return 	$this->user->userData;
 	 */
-	public function userEdit()//dobavka Pit!
+	public function userEdit()
 	{
 		//$this->userEditModel->editUser( $this->userData );
 		$userData = array(
@@ -55,6 +55,7 @@ class UserEdit
 		);
 		
 		$this->userEditModel->userEdit( $this->userId, $userData );
+		
 	}
 	
 	/**
@@ -111,8 +112,6 @@ class UserEdit
 	protected function getUserData()
 	{
 		$this->userData	= $this->userEditModel->getUserData( $this->userId );
-	
-	
 	
 	}
 }

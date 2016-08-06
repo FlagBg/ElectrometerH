@@ -1,6 +1,6 @@
 <?php
 
-include_once '../Model/UserModel.php';
+include_once '../Models/UsersModel.php';
 
 class Users
 {
