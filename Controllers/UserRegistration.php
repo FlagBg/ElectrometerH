@@ -42,12 +42,12 @@ class UserRegistration
 		if( ! empty( $_POST ) )
 		{
 			$userdata = array(
-				'user_username'		=> $_POST['user_username'],
-				'user_password'		=> md5( trim( $_POST['user_password'] ) ),
-				'user_role_id'		=> $_POST['user_role_id'],
-				'user_first_name'	=> $_POST['user_first_name'],
-				'user_last_name'	=> $_POST['user_last_name'],
-				'user_age'			=> $_POST['user_age']
+				'user_username'		=> $_POST['username'],
+				'user_password'		=> md5( trim( $_POST['password'] ) ),
+				'user_role_id'		=> $_POST['role_id'],
+				'user_first_name'	=> $_POST['first_name'],
+				'user_last_name'	=> $_POST['last_name'],
+				'user_age'			=> $_POST['usr_age']
 			); 
 		}
 		print "get me the datas from controller if post " . var_dump($userdata);

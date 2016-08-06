@@ -47,11 +47,11 @@ class UserEdit
 	{
 		//$this->userEditModel->editUser( $this->userData );
 		$userData = array(
-			$_POST['user_username'],
+			$_POST['username'],
 			$_POST['user_role_id'],
-			$_POST['user_first_name'],
-			$_POST['user_last_name'],
-			$_POST['user_age']
+			$_POST['first_name'],
+			$_POST['last_name'],
+			$_POST['age']
 		);
 		
 		$this->userEditModel->userEdit( $this->userId, $userData );
