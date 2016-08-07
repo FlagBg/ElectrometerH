@@ -1,7 +1,7 @@
 <?php
 
 // have a look... my controller needs to include the modell.... 
-include_once '../Model/UserModel.php';
+include_once '../Models/UsersModel.php';
 
 class User
 {
@@ -38,7 +38,7 @@ class User
 	 * @return 	$this->user->userData;
 	 */
 	public function userEdit()
-	{
+	{//die('controller user.php')
 		//$this->userEditModel->editUser( $this->userData );
 		$userData = array(
 				$_POST['user_username'],

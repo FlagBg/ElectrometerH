@@ -77,7 +77,7 @@ if ( $controller != '' )
 		UrlHelper::redirect( 'index.php?controller=login' );
 	}
 	
-	elseif ( $controller == 'users' )
+	elseif ( $controller == 'user' )//rebuild this one as user, coz, session_key, session_id
 	{
 		include __DIR__ . '/../Controllers/ListAllUsers.php';
 		
@@ -113,7 +113,7 @@ if ( $controller != '' )
 		$var->loadPage('my-electrometers');
 	}
 	
-	elseif( $controller == 'listUsers' )
+	elseif( $controller == 'listUsers' )//this one works and shows all users!
 	{
 		
 		include __DIR__ . '/../Controllers/ListAllUsers.php';
@@ -175,7 +175,7 @@ if ( $controller != '' )
 			}
 		}
 	}
-	elseif($controller == 'userEdit')
+	elseif( $controller == 'userEdit' )
 	{
 		include __DIR__ . '/../Controllers/UserEdit.php';
 		

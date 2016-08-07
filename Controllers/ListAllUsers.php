@@ -24,7 +24,6 @@ class ShowAllUsers
 	 * @param 	$this->userData;$this
 	 *
 	 * $return	array( $result ) not anymore $user->userData
-	 *
 	 */
 	public function listAllUsers()
 	{
@@ -32,7 +31,7 @@ class ShowAllUsers
 		
 		if( ! empty( $_POST ) )
 		{
-			if (is_string($_POST['user_username']))
+			if (is_string( $_POST['user_username'] ) )
 			{
 				$username = $_POST['user_username'];
 			}
@@ -41,7 +40,7 @@ class ShowAllUsers
 				return "Username is not a string....oh crap." ;
 			}
 			
-			if ( is_numeric( $_POST['user_role_id']) && strlen( (string)$_POST['user_role_id']) < 12)
+			if ( is_numeric( $_POST['user_role_id'] ) && strlen( (string)$_POST['user_role_id'] ) < 12 )
 			{
 				$roleId = $_POST['user_role_id'];
 			}
@@ -50,25 +49,25 @@ class ShowAllUsers
 				return "Role ID is not valid....oh crap.";
 			}
 			
-			if (is_string($_POST['user_first_name']))
+			if ( is_string( $_POST['user_first_name'] ) )
 			{
-				$fname = $_POST['user_first_name'];
+				$first_name = $_POST['user_first_name'];
 			}
 			else 
 			{
 				return "Firstname is not string oh crap....";
 			}
 			
-			if (is_string($_POST['user_last_name']))
+			if ( is_string( $_POST['user_last_name'] ) )
 			{
-				$lname = $_POST['user_last_name'];
+				$last_name = $_POST['user_last_name'];
 			}
 			else 
 			{
-				return "Firstname is not string oh crap....";
+				return "Surname is not string oh crap....";
 			}
 			
-			if (is_numeric($_POST['user_age']) && strlen((string)$_POST['user_age']) < 4)
+			if ( is_numeric( $_POST['user_age']) && strlen( (string)$_POST['user_age'] ) < 4 )
 			{
 				$age = $_POST['user_age'];
 			}
@@ -78,16 +77,14 @@ class ShowAllUsers
 			}
 			
 			
-			if (isset($username, $roleId, $fname, $lname, $age))
-			{
-				
-			
-			$userList = array(
-					'user_username'		=> $username,
-					'user_role_id'		=>$roleId,
-					'user_first_name' 	=> $fname,
-					'user_last_name'	 => $lname,
-					'user_ age' 		 => $age
+			if ( isset($username, $roleId, $first_name, $last_name, $age) )
+			{	
+				$userList = array(
+					'user_username'		=>	$username,
+					'user_role_id'		=>	$roleId,
+					'user_first_name' 	=>	$first_name,
+					'user_last_name'	=>	$last_name,
+					'user_age' 			=>	$age
 			);
 
 			
@@ -120,14 +117,11 @@ class ShowAllUsers
 	 * @return	boolean true/false;$this
 	 *
 	 */
-	public function renderForm($userList)
+	public function renderForm( $userList )
 	{
-		if (is_array($userList))
+		if (is_array( $userList ) )
 		{
-		
-		include ( __DIR__ . '/../Views/userList.php' );
-
-		
+			include ( __DIR__ . '/../Views/userList.php' );
 		}
 		else
 		{
@@ -137,7 +131,4 @@ class ShowAllUsers
 		
 	}
 	
-	
 }
-
-

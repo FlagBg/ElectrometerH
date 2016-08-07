@@ -241,9 +241,8 @@ class UsersModel {
 		}
 		else
 		{
-			// //okay that is all the SQL query needed to have... yo link the two tables by joining them with the role_id field and the id field
-			
-			 //okay. So now it's just a case of running the query and returning the array as normal. You've done that before. Just in one book that
+		//okay that is all the SQL query needed to have... yo link the two tables by joining them with the role_id field and the id field
+		//okay. So now it's just a case of running the query and returning the array as normal. You've done that before. Just in one book that
 			 
 			$sql = 'SELECT * FROM tbluser, tblrole WHERE tbluser.user_role_id=tblrole.rol_id ORDER BY user_username ASC';
 			//in the listAllUsers - there is no define function CREATE, it is for other controller.
