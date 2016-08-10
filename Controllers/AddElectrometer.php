@@ -10,7 +10,7 @@ include_once '../Models/ElectrometerModel.php';
  * @author FlagBg
  *
  */
-class Electrometers
+class AddElectrometer
 {
 	/**
 	 * @brief
@@ -29,15 +29,18 @@ class Electrometers
 	 *
 	 * @return	array( $result )
 	 */
+	
 	public function registerElectrometer()
 	{
 		$electrometersData = array(
-				'name'			=> $_POST['ele_name'],
-				'insertDate' 	=> $_POST['ele_date_added']
+				'ele_name'			=> $_POST['elctr_name'],
+				'ele_date_added'	=> $_POST['elctr_date'],
+				'ele_status'		=> $_POST['elctr_status'],
+				'ele_date_added' 	=> $_POST['elctr_date'],
+				// to do ele_added_by_user_id
 		);
 
 		$electrometerModel = new ElectrometerModel();
-
 
 		$result = $electrometerModel->registerElectrometer( $electrometerData );
 
@@ -46,18 +49,17 @@ class Electrometers
 	}
 
 	//we need the form...... coz every controller has it's own form....... let's request one :)
-
 	public function renderForm()
 	{
-		$form = file_get_contents( __DIR__ . '/../Views/Electrometer/createElectromer.html');
+		$form = file_get_contents( __DIR__ . '/../Views/Electrometer/addElectrometer.html');
 
 		print $form;
 	}
 	
 	public function loadContent()
 	{
-		$form = file_get_contents( __DIR__ . '/../Views/Electrometer/listElectromer.html');
-
+		$form = file_get_contents( __DIR__ . '/../Views/Electrometer/addElectrometer.html');
+		
 		print $form;//
 	}
 }

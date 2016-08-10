@@ -89,7 +89,7 @@
 				<input type="submit" name="submit" value="Update">
 			</div>
 			<div>
-				<a href="index.php?controller=listUsers">List All Users</a>
+				<a href="index.php?controller=listAllUsers">List All Users</a>
 				<a href="index.php?controller=logout">Logout</a>
 			</div>
 			

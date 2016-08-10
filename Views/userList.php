@@ -9,7 +9,6 @@
 	<h1>List of users</h1>
 	<div id="userListContainer">
 		<?php 
-		
 			foreach ( $userList as $array )
 			{	
 				?>
@@ -29,7 +28,7 @@
 					<div class="userListOptions">
 						<a href="/URL?user_id=<?php echo $array['user_role_id']; ?>&option=edit">Edit User</a>
 						<a href="/URL?user_id=<?php echo $array['user_role_id']; ?>&option=delete">Delete User</a>
-						<a href="index.php?controller=userEdit">Test User</a>
+						<a href="index.php?controller=userEdit">Edit Logged User</a>
 					</div>
 				</div>
 				<?php

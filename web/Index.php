@@ -21,6 +21,10 @@ error_log(print_r( $controller, true ), 3, 'D:\log.txt');
 
 if ( $controller != '' )
 {	
+	
+	/**
+	 * @brief USER SECTION
+	 */
 	if( $controller == 'login' )
 	{
 		/**
@@ -47,23 +51,24 @@ if ( $controller != '' )
 			$login->renderLoginForm();
 		}
 	}
+	
 	elseif ( $controller == 'home' )
-	{ 
+	{
 		if (isset( $_SESSION['user_id']) && isset( $_SESSION['user_key'] ) )
 		{
 			include_once (PROJPATH . '/Controllers/Home_loggedin.php');
-			
+				
 			$homeController	= new Home();
 			$homeController->loadPage();
-			
+				
 		}
 		else
 		{
 			include_once (PROJPATH . '/Controllers/Home.php');
-			
+				
 			$homeController	= new Home();
 			$homeController->loadPage();
-			
+				
 		}
 	}
 	
@@ -93,27 +98,7 @@ if ( $controller != '' )
 		$var->loadPage('my-profile'); 
 	}
 	
-	// Electrometers Controller
-	
-	elseif ( $controller == 'electrometer' )
-	{
-
-		include __DIR__ . '/../Controllers/Electrometers.php';
-		
-		$var = new Electrometers();
-		$var->loadContent(); // this doesn't exist. 
-	}
-	
-	elseif ($controller == 'my-electrometers')
-	{
-		//include __DIR__ . '/../Controllers/Electrometers.php';
-		include __DIR__ . '/../Controllers/Electrometers.php';
-		
-		$var = new Eletrometers();
-		$var->loadPage('my-electrometers');
-	}
-	
-	elseif( $controller == 'listUsers' )//this one works and shows all users!
+	elseif( $controller == 'listAllUsers' )//this one works and shows all users!
 	{
 		
 		include __DIR__ . '/../Controllers/ListAllUsers.php';
@@ -135,7 +120,7 @@ if ( $controller != '' )
 		include __DIR__ . '/../Controllers/Login.php';
 		
 		if(! empty( $_POST ) && isset( $_POST['action'] ) && $_POST['action'] == 'login')
-		{//tova tuk otkade go vze????
+		{
 			$username	= '';
 			if( isset($_POST['user_username']) )
 			{
@@ -226,6 +211,26 @@ if ( $controller != '' )
 				UrlHelper::redirect( '/login' );
 			}
 		}
+	}
+	
+	// Electrometers Controller
+	
+	elseif ( $controller == 'add-electrometers' )
+	{
+		include __DIR__ . '/../Controllers/AddElectrometer.php';
+	
+		$electrometer = new AddElectrometer();
+		
+		$var->loadContent(); // doing it!
+	}
+	
+	elseif ($controller == 'my-electrometers')
+	{
+		//include __DIR__ . '/../Controllers/Electrometers.php';
+		include __DIR__ . '/../Controllers/Electrometers.php';
+	
+		$var = new Eletrometers();
+		$var->loadPage('my-electrometers');
 	}
 	elseif( $controller == 'not-found' )
 	{

@@ -77,7 +77,7 @@ class ShowAllUsers
 			}
 			
 			
-			if ( isset($username, $roleId, $first_name, $last_name, $age) )
+			if ( isset( $username, $roleId, $first_name, $last_name, $age) )
 			{	
 				$userList = array(
 					'user_username'		=>	$username,
@@ -86,8 +86,6 @@ class ShowAllUsers
 					'user_last_name'	=>	$last_name,
 					'user_age' 			=>	$age
 			);
-
-			
 
 			$result		= $usersModel->createUser( $userdata );//
 
@@ -103,6 +101,7 @@ class ShowAllUsers
 		{
 			
 			$userList = $usersModel->listAllUsers();
+			
 			$this->renderForm( $userList );
 			
 		}
