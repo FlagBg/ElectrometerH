@@ -92,7 +92,7 @@ if ( $controller != '' )
 	//it works up to here......... right.... there is described controller electrometers. 
 	elseif ( $controller == 'my-profile' )
 	{
-		include __DIR__ . '/../Controllers/Users.php';
+		include __DIR__ . '/../Controllers/MyProfile.php';
 		
 		$var = new Users();
 		$var->loadPage('my-profile'); 

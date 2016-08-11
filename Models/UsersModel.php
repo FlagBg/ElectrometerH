@@ -164,8 +164,36 @@ class UsersModel {
  		$result = $stmt->execute( $userData);
  	
  		return $result;
- 		
- 		
+	}
+	
+	public function myProfile( $userId, $userData )//duplicate//// will be deleted
+	{
+		$userId = (int) $userId;
+		
+		$sql = 'SELECT * FROM tbluser WHERE user_id = ' . $userId;
+		
+		$stmt = $this->db->prepare( $sql );
+		
+		$result = $stmt->execute( $userData );
+		
+		return $result; 
+	}
+	
+	public function getUserData( $userId )
+	{
+		$sql	= 'SELECT * FROM tbluser WHERE user_id = ' . $userId;
+	
+	
+		$result = $this->db->query( $sql );
+	
+		$userData	= array();
+		//array( $userData['userName'],$userData['']
+		if( $result )
+		{
+			$userData	= $result->fetch(PDO::FETCH_ASSOC);
+		}
+	
+		return $userData;
 	}
 	
 	
@@ -178,17 +206,12 @@ class UsersModel {
 	 */
 	public function userDelete( $userId )//this is clear that means - i undestand it!
 	{
-		//print('hi'); //vlizam tuk
 		// Check to make sure the user cannot delete himself. As that would be stupid.
 		if ($userId == $_SESSION['user_id'])
 		{
 			// Return generic error message.
 			echo 'You cannot delete yourself.';
-			//i know what u mean :D:D:D:D:D, but still don't have skills to do it with admin panel....
-			// lets do it together now then. 
-			// Lets build a chart which will show all of the users and allow you to edit and delete them. It'll take about 25 minutes.ok... thank you
-			//as today all the collegues are somewhere in a conference and i am alone... just i am going to grab a cup of coffee for two mins
-			// no problem. Let me know when you're back. 
+			// Lets build a chart which will show all of the users and allow you to edit and delete them. It'll take about 25 minutes.ok... 
 		}
 		
 		// Otherwise return the user. it doesn't delete... Yes it does. You tried to delete yourself.
@@ -262,30 +285,6 @@ class UsersModel {
 			
 		}
 	}
-	
-	
-	/**
-	 * @brief	Get user data
-	 * 
-	 * @return	array $userData
-	 */
-	public function getUserData( $userId )
-	{
-		$sql	= 'SELECT * FROM tbluser WHERE user_id = ' . $userId;
-
-		
-		$result = $this->db->query( $sql );
-		
-		$userData	= array(); 
-		//array( $userData['userName'],$userData['']
-		if( $result )
-		{
-			$userData	= $result->fetch(PDO::FETCH_ASSOC);
-		}
-		
-		return $userData;
-	}
-	
 	
 	/*
 	public function deleteUser( $deleteUser )

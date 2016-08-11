@@ -1,9 +1,6 @@
 <?php
 
 //include_once '../Models/UsersModel.php';
-
-
-
 /**
  * @brief	class that deleteUser that is logged;
  * 			N.B - I DO NOT USE THIS CONTROLLER;
@@ -15,7 +12,6 @@
  */
 class DeleteUser
 {
-	
 	/**
 	 * 
 	 * @var int $userId;
