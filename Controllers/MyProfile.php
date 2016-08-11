@@ -18,9 +18,12 @@ class MyProfile
 		$this->userId = $_SESSION['user_id'];
 		
 	}
-	public function hi()
+	public function renderData()
 	{
-	 	die('here');
+	 	$result = $this->myProfile->getUserData( $this->userId);
+	 	
+	 	var_dump( $result );
+
 	}
 	
 }

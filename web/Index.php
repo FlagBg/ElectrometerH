@@ -94,8 +94,9 @@ if ( $controller != '' )
 	{
 		include __DIR__ . '/../Controllers/MyProfile.php';
 		
-		$var = new Users();
-		$var->loadPage('my-profile'); 
+		$var = new MyProfile();
+		$var->renderData();
+		
 	}
 	elseif( $controller == 'userEdit' )
 	{
