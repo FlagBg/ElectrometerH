@@ -1,6 +1,6 @@
 <?php 
 
-include_once '..Models/ElectrometerModel.php';
+include_once '../Models/ElectrometerModel.php';
 
 class ShowElectrometer
 {
@@ -14,7 +14,7 @@ class ShowElectrometer
 	
 	public function __construct()
 	{
-		
+		die('showElectrotemer');
 	}
 	
 	public function showElectrometer()

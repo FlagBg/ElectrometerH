@@ -2,16 +2,9 @@
 
 include_once '../Models/ElectrometerModel.php';
 
-/**
- * @brief	register new Electromterer
- *
- * @param	int	id;$this
- *
- * @author FlagBg
- *
- */
+
 class AddElectrometer
-{
+{	
 	/**
 	 * @brief
 	 */
@@ -32,19 +25,33 @@ class AddElectrometer
 	
 	public function registerElectrometer()
 	{
-		$electrometersData = array(
-				'ele_name'			=> $_POST['elctr_name'],
-				'ele_date_added'	=> $_POST['elctr_date'],
-				'ele_status'		=> $_POST['elctr_status'],
-				'ele_date_added' 	=> $_POST['elctr_date'],
-				// to do ele_added_by_user_id
-		);
-
+		if( !empty( $_POST ) )
+		{
+			$electrometerData = array(
+					'ele_name'			=> $_POST['elctr_name'],
+					//'ele_date_added'	=> $_POST['elctr_date'],
+					//'ele_status'		=> $_POST['elctr_status'],
+					//'ele_date_added' 	=> $_POST['elctr_date'],
+					// to do ele_added_by_user_id
+			);
+			
+			var_dump($electrometerData);
+		}
+		
 		$electrometerModel = new ElectrometerModel();
 
 		$result = $electrometerModel->registerElectrometer( $electrometerData );
 
-		return $result;
+		if ( $result == true )
+		{
+			echo 'Electrometer being successfully registered';
+			
+			
+		}
+		else
+		{
+			echo 'An error occurred whils registered an Electrometer';	
+		}
 
 	}
 

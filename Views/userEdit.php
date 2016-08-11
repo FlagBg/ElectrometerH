@@ -88,9 +88,15 @@
 			<div class="submit_container">
 				<input type="submit" name="submit" value="Update">
 			</div>
-			<div>
-				<a href="index.php?controller=listAllUsers">List All Users</a>
-				<a href="index.php?controller=logout">Logout</a>
+			<div class="redirect_home">
+					<a href="/">Home</a>
+					<a href="index.php?controller=listAllUsers">List All Users</a>
+			</div>
+			<div class="redirect_user_test">
+				<ul>
+					<li><a href="/register_user">Add User</a></li>
+					<a href="index.php?controller=logout">Logout</a>
+				</ul>	
 			</div>
 			
 		</div><!-- close the container div -->

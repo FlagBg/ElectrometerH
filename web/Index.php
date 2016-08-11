@@ -97,20 +97,34 @@ if ( $controller != '' )
 		$var = new Users();
 		$var->loadPage('my-profile'); 
 	}
+	elseif( $controller == 'userEdit' )
+	{
+		include __DIR__ . '/../Controllers/UserEdit.php';
+	
+		$userEdit	= new UserEdit();
+	
+		if( ! empty( $_POST ) )
+		{
+			$userEdit->userEdit();
+		}
+	
+		$userEdit->renderForm();
+	
+	}
 	
 	elseif( $controller == 'listAllUsers' )//this one works and shows all users!
 	{
 		
 		include __DIR__ . '/../Controllers/ListAllUsers.php';
 		
-		$var = new ShowAllUsers();;
+		$var = new ShowAllUsers();
 		$var->listAllUsers();
 	}
 	/**
 	 * pokazvame v koi controller getva in!
 	 */
 	
-	elseif($controller == 'loginUser')
+	elseif( $controller == 'loginUser' )
 	{
 		/**
 		 * brief	elseif condition if not from the form $_POST is not empty and isset in 'action'
@@ -160,22 +174,7 @@ if ( $controller != '' )
 			}
 		}
 	}
-	elseif( $controller == 'userEdit' )
-	{
-		include __DIR__ . '/../Controllers/UserEdit.php';
-		
-		$userEdit	= new UserEdit();
-		
-		if( ! empty( $_POST ) )
-		{
-			$userEdit->userEdit();
-		}
-		
-		$userEdit->renderForm();
-		
-		
-		
-	}
+
 	elseif($controller =='userDelete')//elseif($controller == 'userDelete')
 	{
 		include __DIR__ . '/../Controllers/UserEdit.php';
@@ -193,7 +192,7 @@ if ( $controller != '' )
 		// promenih $userEdit na 4userDelete
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	elseif( $controller == 'register' )
+	elseif( $controller == 'register_user' )
 	{
 		include __DIR__ . '/../Controllers/UserRegistration.php';
 	
@@ -215,13 +214,25 @@ if ( $controller != '' )
 	
 	// Electrometers Controller
 	
-	elseif ( $controller == 'add-electrometers' )
+	elseif ( $controller == 'addElectrometer' )
 	{
 		include __DIR__ . '/../Controllers/AddElectrometer.php';
 	
-		$electrometer = new AddElectrometer();
+		$addElectrometer = new AddElectrometer();
 		
-		$var->loadContent(); // doing it!
+		$addElectrometer->registerElectrometer();
+		
+		if ( $_POST )
+		{
+			$result = $addElectrometer->registerElectrometer();
+			
+			if ( $result )
+			{
+				echo 'shti eba maikata!';
+				UrlHelper::redirect( '/login');
+				
+			}
+		}
 	}
 	
 	elseif ($controller == 'my-electrometers')
@@ -234,10 +245,10 @@ if ( $controller != '' )
 	}
 	elseif( $controller == 'not-found' )
 	{
-		include __DIR__ . '/../Controllers/ErrorPage.php';
+		//include __DIR__ . '/../Controllers/ErrorPage.php';
 	
-		$userCreate	= new ErrorPage();
-		$userCreate->loadPage('not-found');
+		//$userCreate	= new ErrorPage();
+		//$userCreate->loadPage('not-found');
 	}
 	else
 	{

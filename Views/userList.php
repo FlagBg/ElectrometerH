@@ -36,6 +36,9 @@
 			}
 		?>
 	</div>
+	<div>
+		<li><a href="/">Home</a></li>
+	</div>
 	
 	</body>
 </html>

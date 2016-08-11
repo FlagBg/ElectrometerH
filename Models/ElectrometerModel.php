@@ -64,11 +64,12 @@ Class ElectrometerModel
 	
 	public function registerElectrometer( $electrometerData )
 	{
-		$sql = 'INSERT INTO tblelectrometer ( ele_name, ele_date_added ) VALUES ( ?, ? )';
+		//$sql = 'INSERT INTO tblelectrometer ( ele_name, ele_date_added ) VALUES ( ?, ? )';
+		$sql = 'INSERT INTO tblelectrometer (ele_name)  VALUES ?';
 		
 		$electrometerData = array(
-				$electrometerData['ele_name'],
-				$electrometerData['ele_date_added']
+					$electrometerData['ele_name']
+				//$electrometerData['ele_date_added']
 		);
 		
 		$stmt	= $this->db->prepare( $sql );
@@ -76,11 +77,6 @@ Class ElectrometerModel
 		$result = $stmt->execute( $electrometerData );
 		
 		return $result;
-		
-	}
-	
-	public function deleteElectrometer()
-	{
 		
 	}
 	

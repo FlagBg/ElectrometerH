@@ -120,14 +120,12 @@ class ShowAllUsers
 	{
 		if (is_array( $userList ) )
 		{
-			include ( __DIR__ . '/../Views/userList.php' );
+			include ( __DIR__ . '/../Views/UserList.php' );
 		}
 		else
 		{
 			echo "an error has occurred.";
-		}
-		
-		
+		}	
 	}
 	
 }

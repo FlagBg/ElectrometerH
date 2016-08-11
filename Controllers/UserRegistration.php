@@ -17,16 +17,7 @@ class UserRegistration
 	 */
 	public function __construct()
 	{
-	/* if( ! empty( $_POST ) )
-		{
-			$userdata = array(
-				'username'	=> $_POST['username'],
-				'password'	=> md5( trim( $_POST['password'] ) ),
-				'fname' 	=> $_POST['fname'],
-				'lname'		=> $_POST['lname'],
-				'age'		=> $_POST['age']
-			); it is creating by default an object;
-		}*/
+	
 	}
 	
 	/**

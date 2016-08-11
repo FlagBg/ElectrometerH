@@ -35,7 +35,6 @@ class Home
 		$result = $smst->fetchAll();
 		
 		
-		
 		$i = 0;
 		$t = count($result);
 		
@@ -50,10 +49,10 @@ class Home
 		
 		//print_r($varArray);
 		
-		$this->renderView($varArray);
+		$this->renderView( $varArray );
 	}
 	
-	private function renderView($variables)
+	private function renderView( $variables )
 	{
 		$header = file_get_contents(PROJPATH . '/Views/header.html');
 		$footer = file_get_contents(PROJPATH . '/Views/footer.html');
